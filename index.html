@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Tetris</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1>Amazon Tetris</h1>
+        </div>
+        
+        <div class="game-content">
+            <div class="game-board-container">
+                <canvas id="gameCanvas" width="300" height="600"></canvas>
+                <div class="game-over" id="gameOver">
+                    <h2>Game Over!</h2>
+                    <p>Final Score: <span id="finalScore">0</span></p>
+                    <button id="restartBtn">Play Again</button>
+                </div>
+            </div>
+            
+            <div class="game-info">
+                <div class="score-section">
+                    <h3>Score</h3>
+                    <div class="score" id="score">0</div>
+                </div>
+                
+                <div class="next-piece-section">
+                    <h3>Next Piece</h3>
+                    <canvas id="nextPieceCanvas" width="120" height="120"></canvas>
+                </div>
+                
+                <div class="controls-section">
+                    <h3>Controls</h3>
+                    <div class="controls">
+                        <div class="control-group">
+                            <h4>Arrow Keys</h4>
+                            <p><strong>←/→</strong> Move</p>
+                            <p><strong>↓</strong> Soft Drop</p>
+                            <p><strong>↑</strong> Rotate</p>
+                        </div>
+                        <div class="control-group">
+                            <h4>WASD + R</h4>
+                            <p><strong>A/D</strong> Move</p>
+                            <p><strong>S</strong> Soft Drop</p>
+                            <p><strong>R</strong> Rotate</p>
+                        </div>
+                        <div class="control-group">
+                            <p><strong>Space</strong> Hard Drop</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
