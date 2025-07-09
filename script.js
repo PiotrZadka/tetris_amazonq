@@ -196,9 +196,25 @@ class TetrisGame {
         const nextRotation = (this.currentPiece.rotation + 1) % rotations.length;
         const rotatedShape = rotations[nextRotation];
         
+        // Try rotate in place
         if (!this.checkCollision(this.currentPiece.x, this.currentPiece.y, rotatedShape)) {
             this.currentPiece.rotation = nextRotation;
             this.currentPiece.shape = rotatedShape;
+            return;
+        }
+        // Try wall kick left
+        if (!this.checkCollision(this.currentPiece.x - 1, this.currentPiece.y, rotatedShape)) {
+            this.currentPiece.x -= 1;
+            this.currentPiece.rotation = nextRotation;
+            this.currentPiece.shape = rotatedShape;
+            return;
+        }
+        // Try wall kick right
+        if (!this.checkCollision(this.currentPiece.x + 1, this.currentPiece.y, rotatedShape)) {
+            this.currentPiece.x += 1;
+            this.currentPiece.rotation = nextRotation;
+            this.currentPiece.shape = rotatedShape;
+            return;
         }
     }
     
