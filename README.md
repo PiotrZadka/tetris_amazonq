@@ -1,154 +1,132 @@
-# Amazon Tetris Game
+# Amazon Tetris
 
-A modern, responsive Tetris game built with HTML5, CSS3, and JavaScript, featuring Amazon-inspired styling and colors.
-
-## 🎬 Demo Video
+A classic Tetris game with Amazon branding, built using HTML5, CSS3, and JavaScript.
 
 [![Watch the demo on YouTube](https://img.shields.io/badge/YouTube-Video-red?logo=youtube&style=for-the-badge)](https://www.youtube.com/watch?v=XKAQwAxlGVc)
 
-Watch a short video demonstration of the game in action!
-
 ## Features
 
-- **Classic Tetris Gameplay**: All standard Tetris pieces (I, O, T, S, Z, J, L)
-- **Amazon-Themed Design**: Beautiful color scheme inspired by Amazon's brand colors
+- **Classic Tetris Gameplay**: All 7 standard Tetris pieces (I, O, T, S, Z, J, L)
+- **Amazon Branding**: Uses Amazon's signature orange (#FF9900) and dark blue (#232F3E) colors
+- **Dual Control Schemes**: Support for both WASD and Arrow keys
+- **Next Piece Preview**: Shows the upcoming piece to help with strategy
+- **Progressive Difficulty**: Game speed increases every 10 lines cleared
+- **Score System**: Points awarded for line clears and soft/hard drops
+- **Proper I-Piece Rotation**: Enhanced rotation system with wall kicks for the I piece
+- **Fair Piece Distribution**: Uses a bag system to ensure balanced piece distribution
 - **Responsive Design**: Works on desktop and mobile devices
-- **Score Tracking**: Keep track of your high score
-- **Next Piece Preview**: See what piece is coming next
-- **Smooth Animations**: Fluid piece movement and line clearing effects
-- **Game Over Screen**: Restart functionality when the game ends
 
-## Game Pieces
+## How to Run
 
-The game includes all seven standard Tetris pieces:
+### Option 1: Direct File Opening
 
-- **I-Piece** (Orange): Straight line piece - great for clearing multiple lines
-- **O-Piece** (Gold): Square piece - stable and easy to place
-- **T-Piece** (Sky Blue): T-shaped piece - versatile for filling gaps
-- **S-Piece** (Light Green): S-shaped piece - good for creating steps
-- **Z-Piece** (Light Red): Z-shaped piece - mirror of S-piece
-- **J-Piece** (Purple): J-shaped piece - useful for corners
-- **L-Piece** (Orange): L-shaped piece - mirror of J-piece
+1. Download all files (`index.html`, `styles.css`, `script.js`, `README.md`)
+2. Open `index.html` in any modern web browser
+3. Start playing immediately!
+
+### Option 2: Local Web Server (Recommended)
+
+For the best experience, serve the files through a local web server:
+
+```bash
+# Using Python 3
+python -m http.server 8000
+
+# Using Python 2
+python -m SimpleHTTPServer 8000
+
+# Using Node.js (if you have http-server installed)
+npx http-server
+
+# Using PHP
+php -S localhost:8000
+```
+
+Then open your browser and navigate to `http://localhost:8000`
 
 ## Controls
 
-The game supports two different control schemes for maximum flexibility:
+### Movement
 
-### Arrow Keys (Traditional)
+- **A** or **←** (Left Arrow): Move piece left
+- **D** or **→** (Right Arrow): Move piece right
+- **S** or **↓** (Down Arrow): Soft drop (faster fall + 1 point)
 
-- **← / →** (Left/Right Arrow): Move piece horizontally
-- **↓** (Down Arrow): Soft drop (move piece down faster)
-- **↑** (Up Arrow): Rotate piece clockwise
+### Rotation
 
-### WASD + R (Alternative)
-
-- **A / D**: Move piece left/right
-- **S**: Soft drop (move piece down faster)
+- **W** or **↑** (Up Arrow): Rotate piece clockwise
 - **R**: Rotate piece clockwise
 
-### Universal Controls
+### Special Actions
 
-- **Space**: Hard drop (instantly drop piece to bottom)
+- **Space**: Hard drop (instant drop + 2 points per row)
+- **P**: Pause/unpause game
 
-Both control schemes work simultaneously, so you can use whichever feels more comfortable or switch between them during gameplay. The soft drop controls (↓ and S) make pieces fall faster than the normal drop speed, allowing for more precise placement.
+## Game Rules
 
-## Scoring System
-
-- **Single Line**: 100 points
-- **Double Line**: 400 points (100 × 2 × 2)
-- **Triple Line**: 900 points (100 × 3 × 3)
-- **Tetris (4 lines)**: 1600 points (100 × 4 × 4)
-
-The game speed increases slightly each time you clear lines, making it progressively more challenging.
+1. **Objective**: Clear horizontal lines by filling them completely with blocks
+2. **Scoring**:
+   - Line clear: 100 × level × lines cleared
+   - Soft drop: 1 point per row
+   - Hard drop: 2 points per row
+3. **Leveling**: Level increases every 10 lines cleared
+4. **Speed**: Game speed increases with each level
+5. **Game Over**: When pieces reach the top of the playing field
 
 ## File Structure
 
 ```
-tetris-game/
-├── index.html          # Main HTML file
-├── styles.css          # CSS styling with Amazon theme
-├── script.js           # JavaScript game logic
-└── README.md          # This file
+amazon-tetris/
+├── index.html      # Main HTML file
+├── styles.css      # CSS styling and layout
+├── script.js       # Game logic and controls
+└── README.md       # This file
 ```
-
-## How to Play
-
-1. Open `index.html` in your web browser
-2. Use either the arrow keys or WASD+R controls to move and rotate pieces:
-   - **Move**: Arrow keys (←/→) or A/D keys
-   - **Soft Drop**: Down arrow (↓) or S key
-   - **Rotate**: Up arrow (↑) or R key
-   - **Hard Drop**: Spacebar
-3. Try to create complete horizontal lines to clear them and score points
-4. The game ends when pieces reach the top of the board
-5. Click "Play Again" to restart
 
 ## Technical Details
 
-### Game Board
+- **Canvas Size**: 300×600 pixels (10×20 blocks)
+- **Block Size**: 30×30 pixels
+- **Framework**: Vanilla JavaScript (no dependencies)
+- **Browser Support**: All modern browsers (Chrome, Firefox, Safari, Edge)
 
-- **Dimensions**: 10 blocks wide × 20 blocks tall
-- **Block Size**: 30px × 30px
-- **Canvas Size**: 300px × 600px
+## Game Mechanics
 
-### Game Logic
+### Piece Rotation System
 
-- **Collision Detection**: Prevents pieces from overlapping or going out of bounds
-- **Line Clearing**: Automatically detects and clears complete lines
-- **Piece Rotation**: Each piece has multiple rotation states
-- **Drop Timer**: Pieces automatically fall at regular intervals
+- Standard pieces use basic rotation with simple wall kicks
+- I-piece uses enhanced rotation system with extended wall kick table
+- Rotation attempts multiple positions to prevent getting stuck
 
-### Controls Implementation
+### Line Clearing
 
-- **Dual Control Schemes**: Supports both arrow keys and WASD+R simultaneously
-- **Key Mapping**:
-  - Movement: ArrowLeft/ArrowRight and KeyA/KeyD
-  - Soft Drop: ArrowDown and KeyS
-  - Rotation: ArrowUp and KeyR
-  - Hard Drop: Space (universal)
-- **Event Handling**: Uses `keydown` events with `e.code` for reliable key detection
-- **Game State Check**: Controls are disabled during game over state
+- Multiple lines can be cleared simultaneously
+- Scoring bonus for clearing multiple lines at once
+- Board compacts automatically after line clears
 
-### Responsive Design
+### Drop System
 
-- Adapts to different screen sizes
-- Mobile-friendly touch controls
-- Flexible layout that works on tablets and phones
-
-## Browser Compatibility
-
-This game works in all modern browsers that support:
-
-- HTML5 Canvas
-- ES6 JavaScript features
-- CSS3 animations and transforms
-
-Tested on:
-
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
+- **Natural Drop**: Pieces fall automatically based on level speed
+- **Soft Drop**: Player-controlled faster drop with scoring bonus
+- **Hard Drop**: Instant drop to bottom with higher scoring bonus
 
 ## Customization
 
 You can easily customize the game by modifying:
 
-- **Colors**: Change the `COLORS` object in `script.js`
-- **Speed**: Adjust `dropInterval` in the TetrisGame constructor
-- **Board Size**: Modify `BOARD_WIDTH` and `BOARD_HEIGHT` constants
-- **Styling**: Update CSS variables in `styles.css`
+- **Colors**: Edit the `COLORS` object in `script.js`
+- **Piece Shapes**: Modify the `PIECES` object in `script.js`
+- **Scoring**: Adjust scoring values in the `clearLines()` and drop functions
+- **Speed**: Change the `dropInterval` calculation for different difficulty curves
+- **Styling**: Update `styles.css` for different visual themes
 
-## Future Enhancements
+## Browser Compatibility
 
-Potential features that could be added:
-
-- Sound effects and background music
-- Local storage for high scores
-- Different difficulty levels
-- Multiplayer support
-- Touch controls for mobile devices
-- Particle effects for line clearing
+- Chrome 60+
+- Firefox 55+
+- Safari 12+
+- Edge 79+
+- Mobile browsers (iOS Safari, Chrome Mobile)
 
 ## License
 
@@ -156,8 +134,8 @@ This project is open source and available under the MIT License.
 
 ## Contributing
 
-Feel free to fork this project and submit pull requests for any improvements or bug fixes.
+Feel free to fork this project and submit pull requests for improvements or bug fixes.
 
 ---
 
-Enjoy playing Amazon Tetris! 🎮
+Enjoy playing Amazon Tetris! 🧱🎮
