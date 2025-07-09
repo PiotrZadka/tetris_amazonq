@@ -1,6 +1,6 @@
 # Amazon Tetris
 
-A classic Tetris game with Amazon branding, built using HTML5, CSS3, and JavaScript.
+A classic Tetris game built with AmazonQ, built using HTML5, CSS3, and JavaScript.
 
 [![Watch the demo on YouTube](https://img.shields.io/badge/YouTube-Video-red?logo=youtube&style=for-the-badge)](https://www.youtube.com/watch?v=XKAQwAxlGVc)
 
