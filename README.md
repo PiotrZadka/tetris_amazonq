@@ -2,6 +2,12 @@
 
 A modern, responsive Tetris game built with HTML5, CSS3, and JavaScript, featuring Amazon-inspired styling and colors.
 
+## 🎬 Demo Video
+
+[![Watch the demo on YouTube](https://img.shields.io/badge/YouTube-Video-red?logo=youtube&style=for-the-badge)](https://www.youtube.com/watch?v=XKAQwAxlGVc)
+
+Watch a short video demonstration of the game in action!
+
 ## Features
 
 - **Classic Tetris Gameplay**: All standard Tetris pieces (I, O, T, S, Z, J, L)
@@ -29,16 +35,19 @@ The game includes all seven standard Tetris pieces:
 The game supports two different control schemes for maximum flexibility:
 
 ### Arrow Keys (Traditional)
+
 - **← / →** (Left/Right Arrow): Move piece horizontally
 - **↓** (Down Arrow): Soft drop (move piece down faster)
 - **↑** (Up Arrow): Rotate piece clockwise
 
 ### WASD + R (Alternative)
+
 - **A / D**: Move piece left/right
 - **S**: Soft drop (move piece down faster)
 - **R**: Rotate piece clockwise
 
 ### Universal Controls
+
 - **Space**: Hard drop (instantly drop piece to bottom)
 
 Both control schemes work simultaneously, so you can use whichever feels more comfortable or switch between them during gameplay. The soft drop controls (↓ and S) make pieces fall faster than the normal drop speed, allowing for more precise placement.
@@ -77,19 +86,22 @@ tetris-game/
 ## Technical Details
 
 ### Game Board
+
 - **Dimensions**: 10 blocks wide × 20 blocks tall
 - **Block Size**: 30px × 30px
 - **Canvas Size**: 300px × 600px
 
 ### Game Logic
+
 - **Collision Detection**: Prevents pieces from overlapping or going out of bounds
 - **Line Clearing**: Automatically detects and clears complete lines
 - **Piece Rotation**: Each piece has multiple rotation states
 - **Drop Timer**: Pieces automatically fall at regular intervals
 
 ### Controls Implementation
+
 - **Dual Control Schemes**: Supports both arrow keys and WASD+R simultaneously
-- **Key Mapping**: 
+- **Key Mapping**:
   - Movement: ArrowLeft/ArrowRight and KeyA/KeyD
   - Soft Drop: ArrowDown and KeyS
   - Rotation: ArrowUp and KeyR
@@ -98,6 +110,7 @@ tetris-game/
 - **Game State Check**: Controls are disabled during game over state
 
 ### Responsive Design
+
 - Adapts to different screen sizes
 - Mobile-friendly touch controls
 - Flexible layout that works on tablets and phones
@@ -105,11 +118,13 @@ tetris-game/
 ## Browser Compatibility
 
 This game works in all modern browsers that support:
+
 - HTML5 Canvas
 - ES6 JavaScript features
 - CSS3 animations and transforms
 
 Tested on:
+
 - Chrome 90+
 - Firefox 88+
 - Safari 14+
@@ -127,6 +142,7 @@ You can easily customize the game by modifying:
 ## Future Enhancements
 
 Potential features that could be added:
+
 - Sound effects and background music
 - Local storage for high scores
 - Different difficulty levels
