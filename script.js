@@ -152,14 +152,14 @@ class TetrisGame {
         const pieceTypes = Object.keys(PIECES);
         const randomType = pieceTypes[Math.floor(Math.random() * pieceTypes.length)];
         
-        this.nextPiece = {
-            type: randomType,
-            shape: PIECES[randomType][0],
-            rotation: 0,
-            x: 0,
-            y: 0,
-            color: COLORS[randomType]
-        };
+this.nextPiece = {
+    type: randomType,
+    shape: PIECES[randomType][0].map(row => [...row]),
+    rotation: 0,
+    x: 0,
+    y: 0,
+    color: COLORS[randomType]
+};
     }
     
     spawnPiece() {
@@ -194,7 +194,7 @@ class TetrisGame {
     rotatePiece() {
         const rotations = PIECES[this.currentPiece.type];
         const nextRotation = (this.currentPiece.rotation + 1) % rotations.length;
-        const rotatedShape = rotations[nextRotation];
+const rotatedShape = rotations[nextRotation].map(row => [...row]);
         
         // Try rotate in place
         if (!this.checkCollision(this.currentPiece.x, this.currentPiece.y, rotatedShape)) {
