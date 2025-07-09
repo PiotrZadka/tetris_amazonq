@@ -17,7 +17,7 @@ const COLORS = {
 // Tetris piece shapes
 const PIECES = {
     I: [
-        [[1, 1, 1, 1]]
+        [[1, 1, 1, 1]],
         [[1],
          [1],
          [1],
